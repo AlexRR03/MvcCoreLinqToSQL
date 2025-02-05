@@ -1,0 +1,26 @@
+﻿@model List<Enfermo>
+
+<h1>Lista de Enfermos</h1>
+
+
+<table class="table  table-hover">
+	<thead>
+		<tr>
+			<td>Inscripcion</td>
+			<td>Apellido</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Enfermo enfermo in Model)
+		{
+			<tr>
+				<td>@enfermo.Inscripcion</td>
+				<td>@enfermo.Apellido</td>
+				 <td>
+					 <a asp-controller="Enfermos" asp-action="Details" asp-route-inscripcion="@enfermo.Inscripcion" class="btn btn-outline-info">Detalles</a>
+					
+				 </td> 
+			</tr>
+		}
+	</tbody>
+</table>

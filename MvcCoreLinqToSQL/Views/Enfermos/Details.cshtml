@@ -1,0 +1,16 @@
+﻿@model Enfermo
+
+<h1>Enfermo: @Model.Inscripcion</h1>
+
+<p>
+	<a asp-controller="Enfermos" asp-action="index" class="btn btn-outline-danger">Volver</a>
+</p>
+
+<ul class="list-group">
+	<li class="list-group-item">Apellido: @Model.Apellido</li>
+	<li class="list-group-item">Direccion: @Model.Direccion</li>
+	<li class="list-group-item">Fecha de Nacimiento: @Model.FechaNacimiento</li>
+	<li class="list-group-item">Sexo: @Model.Sexo</li>
+	<li class="list-group-item">Numero Seguridad Social:  @Model.Numero</li>
+	<li class="list-group-item"><a asp-controller="Enfermos" asp-action="Delete" asp-route-inscripcion="@Model.Inscripcion" class="btn btn-outline-danger">Eliminar</a></li>
+</ul>
