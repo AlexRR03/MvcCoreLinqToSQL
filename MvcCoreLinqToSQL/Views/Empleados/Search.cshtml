@@ -1,0 +1,48 @@
+﻿@model List<Empleado>
+
+<h1>Buscador de Empleados</h1>
+
+<form method="post">
+    <form>
+        <div class="mb-3">
+            <label  class="form-label">Oficio:</label>
+            <input type="text" class="form-control"name="Oficio">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Salario:</label>
+            <input type="text" class="form-control" name="salario">
+        </div>
+        <button class="btn btn-primary">Buscar</button>
+    </form>
+</form>
+
+@if(Model!=null)
+{
+	<table class="table  table-hover">
+		<thead>
+			<tr>
+			
+				<td>Apellido</td>
+				<td>Oficio</td>
+				<td>Salario</td>
+			
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Empleado empleado in Model)
+			{
+				<tr>
+					
+					<td>@empleado.Apellido</td>
+					<td>@empleado.Oficio</td>
+					<td>@empleado.Salario</td>
+				
+					<td><a asp-controller="Empleados" asp-action="Details" asp-route-id="@empleado.Id" class="btn btn-outline-info">Detalles</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}else{
+	<h2>@ViewData["MENSAJE"]</h2>
+}

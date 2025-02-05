@@ -3,3 +3,21 @@
 <h1>Lista de Empleados</h1>
 
 
+<table class="table  table-hover">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Apellido</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(Empleado empleado in Model)
+		{
+			<tr>
+				<td>@empleado.Id</td>
+				<td>@empleado.Apellido</td>
+				<td><a asp-controller="Empleados" asp-action="Details" asp-route-id="@empleado.Id" class="btn btn-outline-info">Detalles</a></td>
+			</tr>
+		}
+	</tbody>
+</table>
